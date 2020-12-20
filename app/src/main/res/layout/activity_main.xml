@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="48dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/raw_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/decimal_input_title"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/monetary_text_input"
+        app:layout_constraintStart_toStartOf="@+id/monetary_text_input"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/raw_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:hint="@string/decimal_input_empty"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@+id/raw_text_title"
+        app:layout_constraintBottom_toBottomOf="@+id/raw_text_title"
+        app:layout_constraintStart_toEndOf="@+id/raw_text_title"
+        app:layout_constraintEnd_toEndOf="@+id/monetary_text_input"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/monetary_text_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:layout_marginTop="16dp"
+        android:maxLength="32"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:hint="Type in decimal numbers"
+        android:inputType=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/raw_text_title"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

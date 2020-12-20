@@ -1,0 +1,20 @@
+.DS_Store
+.gradle
+**/*.iml
+**/local.properties
+**/.idea/**
+**/build
+**/release
+**/lib-distribution
+**/.externalNativeBuild
+**/captures
+**/fabric.properties
+
+# Release Signing
+**/*keystore.properties
+**/*.keystore
+# Sensitive API Keys
+**/*bugsnag*.properties
+
+# Fastlane Report
+fastlane/report.xml
