@@ -106,6 +106,8 @@ internal object MonetaryTextWatcher {
             // Then add the formatting spans.
             try {
                 val rawText = s.toString()
+                // Use big-decimal to support value that's greater than
+                // Int.MAX_VALUE or even Long.MAX_VALUE
                 val decimalText = BigDecimal(rawText)
                 // Format the raw value.
                 val formattedDecimal = formatter.format(decimalText)
@@ -185,6 +187,8 @@ internal object MonetaryTextWatcher {
                 val rawText = s.toString()
                 if (rawText.isBlank()) return
 
+                // Use big-decimal to support value that's greater than
+                // Int.MAX_VALUE or even Long.MAX_VALUE
                 val decimalText = BigDecimal(rawText)
                 val formattedDecimal = formatter.format(decimalText)
                 s.setSpan(
