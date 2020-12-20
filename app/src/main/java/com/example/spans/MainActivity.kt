@@ -43,9 +43,11 @@ class MainActivity : AppCompatActivity() {
             .applyTextView(
                 textView = binding.monetaryTextInput,
                 locale = Locale.getDefault(),
-                currencyCode = "JPY",
+                currencyCode = "USD", // or JPY
                 isAnnotatingCharByChar = false
             )
             .addTo(disposables)
+
+        binding.monetaryTextInput.setText(Int.MAX_VALUE.toString())
     }
 }
