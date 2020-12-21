@@ -12,9 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/decimal_input_title"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/monetary_text_input"
         app:layout_constraintStart_toStartOf="@+id/monetary_text_input"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:hint="@string/decimal_input_empty"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/raw_text_title"
         app:layout_constraintEnd_toEndOf="@+id/monetary_text_input"
         app:layout_constraintStart_toEndOf="@+id/raw_text_title"
@@ -38,7 +41,9 @@
         android:focusableInTouchMode="true"
         android:gravity="center"
         android:hint="Type in decimal numbers"
-        android:maxLength="16"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:textSize="26sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
