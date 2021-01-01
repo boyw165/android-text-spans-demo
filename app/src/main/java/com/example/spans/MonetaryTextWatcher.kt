@@ -6,9 +6,8 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.disposables.Disposable
 import java.math.BigDecimal
-import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.util.Currency
 import java.util.Locale
 import timber.log.Timber
@@ -33,13 +32,16 @@ internal object MonetaryTextWatcher {
     /**
      * The rx-wrapper for setting the monetary text watcher to [EditText] and
      * will automatically unset the watcher when you dispose the subscription.
+     *
+     * Note: The return Completable never completes cause completion also triggers
+     * disposing, and disposing recycles the text watcher.
      */
     fun applyTextView(
         textView: TextView,
         locale: Locale,
         currencyCode: String,
         isAnnotatingCharByChar: Boolean
-    ): Disposable {
+    ): Completable {
         val watcher = if (isAnnotatingCharByChar) {
             MonetaryCharWatcherImpl(locale, currencyCode)
         } else {
@@ -52,7 +54,6 @@ internal object MonetaryTextWatcher {
                 }
                 textView.addTextChangedListener(watcher)
             }
-            .subscribe()
     }
 
     /**
@@ -65,7 +66,7 @@ internal object MonetaryTextWatcher {
 
         private val formatter by lazy {
             val currency = Currency.getInstance(currencyCode)
-            DecimalFormat.getCurrencyInstance(locale).apply {
+            NumberFormat.getCurrencyInstance(locale).apply {
                 // Set the currency of the transaction on the formatter so that
                 // currency symbol is displayed
                 setCurrency(currency)
@@ -144,7 +145,7 @@ internal object MonetaryTextWatcher {
 
         private val formatter by lazy {
             val currency = Currency.getInstance(currencyCode)
-            DecimalFormat.getCurrencyInstance(locale).apply {
+            NumberFormat.getCurrencyInstance(locale).apply {
                 // Set the currency of the transaction on the formatter so that
                 // currency symbol is displayed
                 setCurrency(currency)

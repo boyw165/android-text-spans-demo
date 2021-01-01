@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">TextSpans Demo</string>
 
+    <string name="span_type_title">Span Type: </string>
+
     <string name="decimal_input_empty">Empty!</string>
     <string name="decimal_input_title">Raw text: </string>
+
+    <string name="item_of_full_replacement_span">Full Replacement</string>
+    <string name="item_of_character_replacement_span">Character Replacement</string>
 </resources>
