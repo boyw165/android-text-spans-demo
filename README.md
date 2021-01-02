@@ -2,13 +2,17 @@
 
 <p align="center">
     <a href="https://youtu.be/qoQfCuLKHZw">
-        <img src="docs/photos/monetary-span-youtube.png" width="480">
+        <img src="docs/photos/monetary-span-youtube.png">
     </a>
 </p>
 
 Formatting number with currency symbol and thousand separators is quite common, and it's tricky to implement it. Popular answer on StackOverlow with pure TextWatcher isn't really satisfactory and has many potential side-effects.
 
 Android provides more than 20 span types and Span is a way to change the rendering for the text without touching the text. i.e. Span implementation changes the UI NOT data.
+
+<p align="center">
+    <img src="docs/photos/monetary-span-comparison.png">
+</p>
 
 ---
 
